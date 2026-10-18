@@ -1,0 +1,86 @@
+### request.http
+
+```http
+@baseUrl = http://localhost:3000
+
+### 1. Report a lost item
+POST {{baseUrl}}/report/lost-item
+Content-Type: application/json
+
+{
+  "name": "Black Wallet",
+  "description": "A black leather wallet containing an ID card",
+  "location": "University Library",
+  "dateLost": "2026-10-18"
+}
+
+### 2. Report a found item
+POST {{baseUrl}}/report/found-item
+Content-Type: application/json
+
+{
+  "name": "Blue Backpack",
+  "description": "A blue backpack containing notebooks",
+  "location": "Main Cafeteria",
+  "dateFound": "2026-10-18"
+}
+
+### 3. Get all reported items
+GET {{baseUrl}}/reported-items
+
+### 4. Filter by type: Lost
+GET {{baseUrl}}/reported-items?type=lost
+
+### 5. Filter by type: Found
+GET {{baseUrl}}/reported-items?type=found
+
+### 6. Filter by name
+GET {{baseUrl}}/reported-items?name=wallet
+
+### 7. Filter by location
+GET {{baseUrl}}/reported-items?location=University
+
+### 8. Filter by date
+GET {{baseUrl}}/reported-items?date=2026-10-18
+
+### 9. Filter by recovery status: not recovered
+GET {{baseUrl}}/reported-items?isRecoverd=false
+
+### 10. Filter by recovery status: recovered
+GET {{baseUrl}}/reported-items?isRecoverd=true
+
+### 11. Combine multiple filters
+GET {{baseUrl}}/reported-items?type=lost&location=University&isRecoverd=false
+
+### 12. Test invalid type
+GET {{baseUrl}}/reported-items?type=unknown
+
+### 13. Get an item by ID
+GET {{baseUrl}}/reported-items/1
+
+### 14. Get a nonexistent item
+GET {{baseUrl}}/reported-items/999
+
+### 15. Update an item's details
+PUT {{baseUrl}}/reported-items/1
+Content-Type: application/json
+
+{
+  "description": "Black leather wallet containing an ID card and cash",
+  "location": "University Main Hall"
+}
+
+### 16. Update a nonexistent item
+PUT {{baseUrl}}/reported-items/999
+Content-Type: application/json
+
+{
+  "location": "New Location"
+}
+
+### 17. Mark an item as recovered
+PUT {{baseUrl}}/reported-items/1/recover
+
+### 18. Recover a nonexistent item
+PUT {{baseUrl}}/reported-items/999/recover
+```
