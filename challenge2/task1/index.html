@@ -1,0 +1,56 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Autocomplete</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+
+        #search {
+            width: 300px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .suggestion-box {
+            width: 300px;
+            max-height: 200px;
+            overflow-y: auto;
+            border: 1px solid #ccc;
+            border-top: none;
+            box-sizing: border-box;
+        }
+
+        .suggestion-box[hidden] {
+            display: none;
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .suggestion-item:hover {
+            background-color: #eee;
+        }
+    </style>
+</head>
+<body>
+    <h2>Search for a country</h2>
+
+    <input
+        type="text"
+        id="search"
+        placeholder="Type a country name..."
+        autocomplete="off"
+    >
+
+    <script type="module" src="./script.js"></script>
+</body>
+</html>
