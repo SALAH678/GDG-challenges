@@ -1,0 +1,82 @@
+@baseUrl = http://localhost:3000/api/auth
+@contentType = application/json
+
+### 1. Sign up
+# @name signup
+POST {{baseUrl}}/signup
+Content-Type: {{contentType}}
+
+{
+  "username": "new_user",
+  "password": "MyPassword123"
+}
+
+### 2. Duplicate username
+POST {{baseUrl}}/signup
+Content-Type: {{contentType}}
+
+{
+  "username": "new_user",
+  "password": "MyPassword123"
+}
+
+### 3. Invalid username (expect 400)
+POST {{baseUrl}}/signup
+Content-Type: {{contentType}}
+
+{
+  "username": "a!",
+  "password": "MyPassword123"
+}
+
+### 4. Password too short (expect 400)
+POST {{baseUrl}}/signup
+Content-Type: {{contentType}}
+
+{
+  "username": "short_pass",
+  "password": "123"
+}
+
+### 5. Log in (expect 200)
+# @name login
+POST {{baseUrl}}/login
+Content-Type: {{contentType}}
+
+{
+  "username": "john_doe",
+  "password": "Password123"
+}
+
+###
+POST {{baseUrl}}/login
+Content-Type: {{contentType}}
+
+{
+  "username": "new_user",
+  "password": "MyPassword123"
+}
+
+### 6. Wrong password (expect 401)
+POST {{baseUrl}}/login
+Content-Type: {{contentType}}
+
+{
+  "username": "john_doe",
+  "password": "WrongPassword"
+}
+
+### 7. Unknown user (expect 401)
+POST {{baseUrl}}/login
+Content-Type: {{contentType}}
+
+{
+  "username": "nobody",
+  "password": "Password123"
+}
+
+### 8. Missing fields (expect 400)
+POST {{baseUrl}}/login
+Content-Type: {{contentType}}
+
+{}
