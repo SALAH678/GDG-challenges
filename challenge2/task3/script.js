@@ -1,16 +1,10 @@
 var firstMissingPositive = function (nums) {
+  const numbers = new Set(nums);
+
   let smallestPositiveNumber = 1;
 
-  for (let i = 0; i < nums.length; i++) {
-    if (smallestPositiveNumber === nums[i]) {
-      i = -1;
-      smallestPositiveNumber++;
-      continue;
-    }
-
-    if (i === nums.length - 1) {
-      return smallestPositiveNumber;
-    }
+  while (numbers.has(smallestPositiveNumber)) {
+    smallestPositiveNumber++;
   }
 
   return smallestPositiveNumber;
