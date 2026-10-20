@@ -1,6 +1,6 @@
 using StoreApi.Entities;
 
-namespace StoreApi.Repositories;
+namespace StoreApi.Interfaces;
 
 public interface IOrderRepository
 {
@@ -11,9 +11,5 @@ public interface IOrderRepository
         string idempotencyKey,
         CancellationToken cancellationToken);
 
-    /// <summary>
-    /// Atomically stores the order unless one already exists for the same
-    /// (customer, idempotency key). Returns the stored order and whether it was newly created.
-    /// </summary>
     Task<(Order Order, bool Created)> AddIfAbsentAsync(Order order, CancellationToken cancellationToken);
 }

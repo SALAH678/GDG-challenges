@@ -1,6 +1,6 @@
 using StoreApi.Entities;
 
-namespace StoreApi.Repositories;
+namespace StoreApi.Interfaces;
 
 public interface ICustomerRepository
 {

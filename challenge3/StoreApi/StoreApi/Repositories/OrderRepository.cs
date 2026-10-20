@@ -1,4 +1,5 @@
 using StoreApi.Entities;
+using StoreApi.Interfaces;
 
 namespace StoreApi.Repositories;
 

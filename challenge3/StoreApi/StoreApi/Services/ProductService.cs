@@ -1,6 +1,6 @@
 using StoreApi.Dtos;
 using StoreApi.Entities;
-using StoreApi.Repositories;
+using StoreApi.Interfaces;
 
 namespace StoreApi.Services;
 

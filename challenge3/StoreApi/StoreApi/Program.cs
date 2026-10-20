@@ -1,4 +1,5 @@
 using StoreApi.Endpoints;
+using StoreApi.Interfaces;
 using StoreApi.Middleware;
 using StoreApi.Repositories;
 using StoreApi.Services;

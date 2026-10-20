@@ -1,7 +1,7 @@
 using StoreApi.Dtos;
 using StoreApi.Requests;
 
-namespace StoreApi.Services;
+namespace StoreApi.Interfaces;
 
 public interface IOrderService
 {

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http.HttpResults;
 using StoreApi.Dtos;
-using StoreApi.Services;
+using StoreApi.Interfaces;
 
 namespace StoreApi.Endpoints;
 

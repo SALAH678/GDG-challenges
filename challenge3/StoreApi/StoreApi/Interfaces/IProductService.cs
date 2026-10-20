@@ -1,6 +1,6 @@
 using StoreApi.Dtos;
 
-namespace StoreApi.Services;
+namespace StoreApi.Interfaces;
 
 public interface IProductService
 {

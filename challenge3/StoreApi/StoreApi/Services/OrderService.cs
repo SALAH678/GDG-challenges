@@ -1,7 +1,7 @@
 using StoreApi.Dtos;
 using StoreApi.Entities;
 using StoreApi.Exceptions;
-using StoreApi.Repositories;
+using StoreApi.Interfaces;
 using StoreApi.Requests;
 
 namespace StoreApi.Services;
