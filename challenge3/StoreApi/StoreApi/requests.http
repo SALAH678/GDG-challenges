@@ -1,0 +1,54 @@
+@StoreApi_HostAddress = http://localhost:5108
+
+### Browse products and available stock
+GET {{StoreApi_HostAddress}}/api/products
+Accept: application/json
+
+### Get only products currently available in stock
+GET {{StoreApi_HostAddress}}/api/products/available
+Accept: application/json
+
+### View one product's stock
+GET {{StoreApi_HostAddress}}/api/products/1
+Accept: application/json
+
+### Search products by a partial name
+GET {{StoreApi_HostAddress}}/api/products/search?name=key
+Accept: application/json
+
+### Place an order
+POST {{StoreApi_HostAddress}}/api/orders
+Content-Type: application/json
+
+{
+  "customerId": "customer-1",
+  "productId": 1,
+  "quantity": 1,
+  "idempotencyKey": "customer-1-mouse-001"
+}
+
+### Retry the same order safely (returns the original order)
+POST {{StoreApi_HostAddress}}/api/orders
+Content-Type: application/json
+
+{
+  "customerId": "customer-1",
+  "productId": 1,
+  "quantity": 1,
+  "idempotencyKey": "customer-1-mouse-001"
+}
+
+### View a customer's orders
+GET {{StoreApi_HostAddress}}/api/orders?customerId=customer-1
+Accept: application/json
+
+### Sold-out / insufficient-stock
+POST {{StoreApi_HostAddress}}/api/orders
+Content-Type: application/json
+
+{
+  "customerId": "customer-2",
+  "productId": 3,
+  "quantity": 1,
+  "idempotencyKey": "customer-2-hub-001"
+}
