@@ -6,4 +6,5 @@ public sealed class Product
     public required string Name { get; init; }
     public required decimal Price { get; init; }
     public required int Stock { get; set; }
+    public ICollection<Order> Orders { get; } = [];
 }
